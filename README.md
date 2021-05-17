@@ -19,14 +19,17 @@ The overall steps to set up our data and perform iterative regression modeling i
 4. Learn from our model's coefficients, p-values, and R-sqaured, optimize our features for the model , and repeat step 3 with optimized features
 
 **Preparing and Exploring the data**
+
 This step was confirming the data sources and features to examine -- that is the Kings County, WA home sales data as well as the NHGIS demographic data while targeting location-centric based features. The next and one of the most important step to perform is data exploration to examine and obvious correlations between our features and our target of house price, and being mindful of the features that are potentially relevant to our stakeholders.
 
 **Clean the data**
+
 Another important step to perform that is done in conjunction with data exploration is examining the data quality ie. missing values, mis-inputs, etc. For example, the features missing the most entries included whether a property contained a waterfront and the year the house was renovated. The waterfront feature was more relevant for our analysis, and we dropped year renovated. Tt was discovered that ~11% of the total rows of the dataset were missing the waterfront feature. As a result, we decided to simply drop the rows missing waterfront reducing our dataset from 21,597 rows to 19,164.
 
 Another consideration during this step is observing the outliers and handling any skewed distrubutions within our features or target that may affect our regression modeling efforts. The strongest right-skewed observations were seen within the median income feature and house price distributions. Outliers were removed for median income instances with a z-score larger than 2.
 
 **Build our model and check we're meeting the model's assumptions**
+
 In building our model, the steps include selecting our features, engineering any desired features, and transforming them in a way our regression model can ingest for an informative output. For example, our waterfront and view features are categorical, therefore we would one-hot-encode for the model to interpret them as distinguished classes versus one class being viewed as 'higher' or 'lower' in value. Morever, the distance from downtown was a location-based feature created calculating the geo distance from the home's lat lon coordinates from the coordinates of downtown Seattle.
 
 After preparing our features, we build our model and interpret the resulting R-squared, intercept, feature coefficients, and p-values to evaluate how well the features explain the variance within our house price target. 
@@ -34,6 +37,7 @@ After preparing our features, we build our model and interpret the resulting R-s
 The next step is to evaluate how we're meeting the linear regression model assumptions -- Linearity, Normality, and Homoscedasticity. These assumptions are checked through a slew of statistical tests such as: rainbow test for linearity, QQ plotting for normality check, and plotting our model's residuals around the house price for homoscedasticity. 
 
 **Learn from our model's coefficients, p-values, and R-sqaured, optimize our features for the model , and repeat step 3 with optimized features**
+
 Lastly, after evaluating how well our previous model meet's linear regression assumptions, mulitcollinearity, and p-values explaining how significant a change in our target house price is related to changes in the feature -- we may want to remove, add, or engineer new features to improve. For example, it was discovered that median age has high multicollinearity with other features the model and so it was removed as a feature. Moreover, a house's distance from downtown Seattle had a p-value larger than our 0.05 significance threshold and so it was also removed as a feature.
 
 This process of evaluating our features and how well they meet linear regression assumptions is repeated until we are satisfied with the features being used, assumptions being met, the model's R-squared, and most of all how the results help tell our story. 
@@ -85,7 +89,7 @@ Based on the presented analysis, there are more steps we can take to improve our
 
 ## For More Information
 
-Please review our full analysis in [our Jupyter Notebook](./0-Microsoft-Movie-Analysis.ipynb) or our [presentation](./MicrosoftMovieAnalysis_Flatiron_Presentation_MG.pdf).
+Please review our full analysis in [our Jupyter Notebook](./0-KingsCountyWA_Location_Housing_Analysis.ipynb) or our [presentation](./KingsCounty_HousingAnalysis_Flatiron_Presentation_MG.pdf).
 
 For any additional questions, please contact **Melvin Garcia garciamelvin4@gmail.com**
 
@@ -93,8 +97,9 @@ For any additional questions, please contact **Melvin Garcia garciamelvin4@gmail
 
 ```
 ├── README.md                           
-├── 0-KingsCounty_Location_Housing_Analysis.ipynb  
-├── MicrosoftMovieAnalysis_Flatiron_Presentation_MG.pdf
+├── 0-KingsCountyWA_Location_Housing_Analysis.ipynb  
+├── KingsCountyWA_Location_Housing_Analysis.pdf
+├── KingsCounty_HousingAnalysis_Flatiron_Presentation_MG.pdf
 ├── data
 └── images
 ```
